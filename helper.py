@@ -15,7 +15,7 @@ def read_pdf_text(uploaded_file):
 
 def make_prompt(version, question, content):
     if version.startswith("v1"):
-        return f""" Answer the question based on the content provided
+        return f""" Answer the question based on the content provided. Guess if needed.
         Question: {question}
         Content: {content}
         """
