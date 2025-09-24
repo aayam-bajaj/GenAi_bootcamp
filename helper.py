@@ -19,6 +19,11 @@ def make_prompt(version, question, content):
         Question: {question}
         Content: {content}
         """
+    if version.startswith("v2"):
+        return f""" Answer ONLY if you can cite a phrase from the document provided. If not present, reply exactly, "Not found in document".
+        Question: {question}
+        Content: {content}
+        """
 def call_ollama(ollama_server, model, prompt, temperature, max_tokens=512):
     api_url = f"{ollama_server}/api/generate"
     payload = {

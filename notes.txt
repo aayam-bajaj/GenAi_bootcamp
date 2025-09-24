@@ -1,6 +1,6 @@
 LLM-Large Language Model 
 VLM- Vision Language Model
-
-
+Temperature: It is a measure of the accuracy and the consistency of the prompts generated. Low temp, less creative, more consistent. High temp, more creative, less consistent.
+qwen2.5vl:3b
 
                                                                                                                                       

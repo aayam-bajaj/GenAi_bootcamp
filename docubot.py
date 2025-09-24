@@ -6,7 +6,7 @@ st.set_page_config(layout="wide")
 OLLAMA = st.sidebar.text_input("Ollama Server", "http://localhost:11434")
 MODEL = st.sidebar.text_input("Model", "gemma3:1b")
 temp = st.sidebar.slider("Temperature", 0.0,1.0,0.2,0.1)
-prompt_style = st.sidebar.radio("Prompt Style" , ["v1(1)"])
+prompt_style = st.sidebar.radio("Prompt Style" , ["v1(1)", "v2(2)"])
 
 left, right = st.columns(2, gap="large")
 
@@ -39,4 +39,4 @@ with right:
         
             with st.expander("Prompt"):
                 st.write(prompt)
-
+                
