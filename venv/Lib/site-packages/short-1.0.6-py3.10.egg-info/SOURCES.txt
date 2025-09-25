@@ -1,0 +1,12 @@
+setup.cfg
+setup.py
+short/__init__.py
+short/_version.py
+short/cli.py
+short/compile.py
+short.egg-info/PKG-INFO
+short.egg-info/SOURCES.txt
+short.egg-info/dependency_links.txt
+short.egg-info/entry_points.txt
+short.egg-info/requires.txt
+short.egg-info/top_level.txt

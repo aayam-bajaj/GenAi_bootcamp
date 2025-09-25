@@ -1,6 +1,7 @@
 import pdfplumber
 import requests
 import streamlit as st
+import json
 def read_pdf_text(uploaded_file):
     parts = []
     print(parts)
@@ -38,3 +39,33 @@ def call_ollama(ollama_server, model, prompt, temperature, max_tokens=512):
     print(answer)
     answer.raise_for_status()
     return(answer.json().get("response") or "").strip()
+def call_openrouter(api_key, model, prompt, temp):
+    """
+    Sends a request to the OpenRouter API and returns the model's response.
+    """
+    if not api_key:
+        return "Error: OpenRouter API key is missing. Please add it in the sidebar."
+
+    try:
+        response = requests.post(
+            url="https://openrouter.ai/api/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json"
+            },
+            data=json.dumps({
+                "model": model,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": temp,
+            }),
+            timeout=60
+        )
+        response.raise_for_status()
+        result = response.json()
+        return result['choices'][0]['message']['content']
+    except requests.exceptions.RequestException as e:
+        return f"API Call Error (OpenRouter): {e}"
+    except (KeyError, IndexError):
+        return f"Error: Could not parse response from OpenRouter. Response: {response.text}"
+
+

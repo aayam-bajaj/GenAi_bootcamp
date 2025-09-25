@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+bind/__init__.py
+bind/bind.py
+bind/py.typed
+bind.egg-info/PKG-INFO
+bind.egg-info/SOURCES.txt
+bind.egg-info/dependency_links.txt
+bind.egg-info/not-zip-safe
+bind.egg-info/top_level.txt

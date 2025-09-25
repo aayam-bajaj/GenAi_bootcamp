@@ -1,0 +1,3 @@
+[console_scripts]
+short = short.cli:grow.interface.cli
+
